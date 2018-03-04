@@ -18,14 +18,14 @@ gulp.task('coffee', function(){
 	gulp.src(coffeeSources)
 		.pipe(coffee({bare: true})
 			.on('error', gutil.log))
-		.pipe(gulp.dest('components/scripts'))
+		.pipe(gulp.dest('components/scripts'));
 });
 
 gulp.task('js', function(){
 	gulp.src(jsSources)
 		.pipe(concat('script.js'))
 		.pipe(browserify())
-		.pipe(gulp.dest('builds/development/js'))
+		.pipe(gulp.dest('builds/development/js'));
 });
 
 gulp.task('compass', function(){
@@ -36,6 +36,7 @@ gulp.task('compass', function(){
 			style: 'expanded'
 		}))
 		.on('error', gutil.log)
-		.pipe(gulp.dest('builds/development/css'))
+		.pipe(gulp.dest('builds/development/css'));
 });
 
+gulp.task('default',['coffee', 'js', 'compass']);
